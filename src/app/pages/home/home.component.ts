@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.dataSource.filterPredicate = (data: string, fil: string)=> {
       return fil.split('').map((char, idx) => {
-        return char === '%' || char === data.at(idx);
+        return char === '%' || char.toLowerCase() === data.at(idx)?.toLowerCase();
       }).every(res => res);
     }
   }
